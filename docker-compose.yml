@@ -59,7 +59,7 @@ services:
             - MYSQL_USER=backend
             - MYSQL_PASSWORD=justatestpassshouldntcommit
         volumes:
-            - dbdata:/var/lib/mysql
+            - mysqldata:/var/lib/mysql
             - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
         ports:
             - '3306:3306'
