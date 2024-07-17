@@ -13,13 +13,13 @@ services:
             - ./docker/apache/frontend.conf:/etc/apache2/sites-available/000-default.conf
         environment:
             - NODE_ENV=development
-            - APACHE_DOCUMENT_ROOT=/var/www/html/public
+            - APACHE_DOCUMENT_ROOT=/var/www/html/dist/srs-frontend
         working_dir: /var/www/html
         entrypoint: ["/bin/sh","-c"]
         command:
             - |
                yarn
-               apache2-foreground & ng serve -- --host
+               apache2-foreground & ng serve --host=0.0.0.0
         networks:
           - srs-net
 
@@ -38,8 +38,6 @@ services:
             - ./docker/apache/backend.conf:/etc/apache2/sites-available/000-default.conf
             - ./docker/php/php-ini-overrides.ini:/etc/php/8.3/apache2/conf.d/99-overrides.ini
         environment:
-            - APP_ENV=local
-            - DB_HOST=db
             - APACHE_DOCUMENT_ROOT=/var/www/html/public
         working_dir: /var/www/html
         entrypoint: ["/bin/sh","-c"]
