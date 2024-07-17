@@ -20,6 +20,9 @@ RUN apt-get update \
 		libzstd-dev \
         unzip \
         libfreetype-dev \
+		libcurl4-openssl-dev \
+		pkg-config \
+		libssl-dev \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install PHP extensions
