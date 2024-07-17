@@ -25,7 +25,8 @@ RUN apt-get update \
 # Install PHP extensions
 RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd fileinfo \
     && yes | pecl install xdebug \
-    && docker-php-ext-enable xdebug \
+    && pecl install mongodb \
+    && docker-php-ext-enable xdebug mongodb \
     && echo "xdebug.mode=debug" >> /usr/local/etc/php/conf.d/xdebug.ini \
     && rm -rf /tmp/pear
 
