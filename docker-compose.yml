@@ -36,7 +36,7 @@ services:
         volumes:
             - ./backend:/var/www/html
             - ./docker/apache/backend.conf:/etc/apache2/sites-available/000-default.conf
-            - ./docker/php/php-ini-overrides.ini:/etc/php/8.3/apache2/conf.d/99-overrides.ini
+            - ./docker/php/php-ini-overrides.ini:/usr/local/etc/php/conf.d/99-overrides.ini
         environment:
             - APACHE_DOCUMENT_ROOT=/var/www/html/public
         working_dir: /var/www/html
