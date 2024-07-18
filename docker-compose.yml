@@ -19,7 +19,7 @@ services:
         command:
             - |
                yarn
-               apache2-foreground & ng serve --host=0.0.0.0
+               apache2-foreground & yarn run start
         networks:
           - srs-net
 
